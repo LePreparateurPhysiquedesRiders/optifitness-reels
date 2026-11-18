@@ -2,7 +2,7 @@
 # Installe la boîte à outils de montage Opti' FITNESS (gratuit, à relancer au début de chaque session).
 set -u
 D="$(cd "$(dirname "$0")" && pwd)"; K="${OPTI_HOME:-$HOME/opti}"; export OPTI_HOME="$K"; mkdir -p "$K/bin" "$K/models" "$K/sfx"; cp "$D"/*.py "$K"/; cd "$K"
-pip install -q --break-system-packages numpy scipy soundfile pyloudnorm pedalboard librosa pillow sherpa-onnx gradio_client requests 2>&1 | grep -v WARNING | tail -1
+pip install -q --break-system-packages numpy scipy soundfile pyloudnorm pedalboard librosa pillow sherpa-onnx gradio_client requests cryptography 2>&1 | grep -v WARNING | tail -1
 G=https://github.com; S=$G/k2-fsa/sherpa-onnx/releases/download
 [ -x bin/deep-filter ] || { curl -sL -o bin/deep-filter $G/Rikorose/DeepFilterNet/releases/download/v0.5.6/deep-filter-0.5.6-x86_64-unknown-linux-musl; chmod +x bin/deep-filter; }
 cd models
