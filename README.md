@@ -10,5 +10,6 @@ Installation : `bash setup.sh` (crée `~/opti`).
 | `bank.py` | banque de sons libres de droits : `sync`, `find`, `stats` |
 | `studio.py` | 24 looks, 59 transitions, musique originale, profil de style |
 | `amelio.py` | amélioration vidéo automatique avec la carte graphique du PC |
+| `clips.py` | recherche et téléchargement de clips Pixabay (clé fournie dans la conversation) |
 
 Sons : Kenney, Sonic Pi et uisfx sous licence CC0. Transitions shader : gl-transitions sous licence MIT.
