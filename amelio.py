@@ -42,7 +42,8 @@ def verifie(a):
     print(json.dumps({"format": f"{s[0]}x{s[1]}", "duree_s": round(s[2], 2), "fidelite_ssim": round(ss, 3), "nettete_avant": round(n0, 1), "nettete_apres": round(n1, 1), "verdict": "OK" if not bad else "A CORRIGER", "problemes": bad}, ensure_ascii=False))
 
 
-def nettoie(a): subprocess.run(["git", "push", "-q", f"https://github.com/{REPO}", "--delete", BR], capture_output=True); print("Relais supprimé")
+def nettoie(a):
+    d = tempfile.mkdtemp(); git("init", "-q", "-b", BR, d); git(*ID, "commit", "-q", "--allow-empty", "-m", "Relais vidé", cwd=d); git("push", "-q", "-f", f"https://github.com/{REPO}", f"{BR}:{BR}", cwd=d); shutil.rmtree(d, ignore_errors=True); print("Relais vidé")
 
 
 p = argparse.ArgumentParser(); s = p.add_subparsers(dest="c", required=True)
